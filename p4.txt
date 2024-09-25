@@ -1,0 +1,21 @@
+Write the steps and then perform to move file from:
+a.remote repo to local repo
+b.from local to staging area(remove prac3)
+c.from staging to working directory
+
+git init
+git fetch <url>(here it will move the files from remote repo to local repo)
+cd .git/objects(to check the blob to the local repo)
+cd<2 char of object>
+ls
+git cat-file -t 2char_code+<sha-1 code of blob>  #it will give the type of object(because there are only 38 chars)
+git cat-file -p <sha-1 code of blob>  #it will give the contents of the object
+vi filename
+100644 blob <code> tab file.txt
+cat filename(note:which is created above with vi editor take that file name) | git mktree
+git read-tree <sha-1code of above created> #it will add the file in the staging area
+git ls-files -s #to check the files in staging area
+git status
+ls
+git checkout-index -a#it will move the file from staging area to working directory
+
